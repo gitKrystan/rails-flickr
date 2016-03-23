@@ -2,7 +2,9 @@ include ActionDispatch::TestProcess
 
 FactoryGirl.define do
   factory :user do
-    email 'test@example.com'
+    sequence :email do |n|
+      "test-#{n}@example.com"
+    end
     password 'f4k3p455w0rd'
 
     factory :user_with_image do

@@ -17,3 +17,11 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import 'bootswatch';
+
+.image-area {
+  text-align: center;
+
+  img {
+    max-width: 100%
+  }
+}

@@ -1,6 +1,7 @@
-class ImagesController < ApplicationController
+class ImagesController < CrudController
   before_action :set_profile, only: [:new, :create]
   before_action :set_image, only: [:show, :edit, :update]
+  before_action :authenticate_image_owner, only: [:edit, :update]
 
   def index
     @images = Image.all
@@ -47,5 +48,17 @@ class ImagesController < ApplicationController
 
   def set_profile
     @profile = Profile.find(params[:profile_id])
+  end
+
+  def user_is_image_owner?
+    current_user == @image.profile.user
+  end
+  helper_method :user_is_image_owner?
+
+  def authenticate_image_owner
+    unless user_is_image_owner?
+      flash[:notice] = 'You are not authorized to edit this image.'
+      redirect_to @image
+    end
   end
 end
