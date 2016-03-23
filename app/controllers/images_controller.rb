@@ -39,7 +39,7 @@ class ImagesController < CrudController
   def destroy
     @image.destroy
     flash[:notice] = 'Deleted image.'
-    redirect_to root_path
+    # redirect_to root_path
   end
 
   private
