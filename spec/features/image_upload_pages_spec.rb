@@ -11,12 +11,12 @@ describe 'upload an image' do
   it 'uploads a selected image' do
     fill_in 'Name', with: 'My Cat'
     page.attach_file('File', 'spec/fixtures/images/cat.jpg')
-    click_button 'Upload'
+    click_button 'Create Image'
     expect(page).to have_content 'My Cat'
   end
 
   it 'uploads a selected image' do
-    click_button 'Upload'
+    click_button 'Create Image'
     expect(page).to have_content 'errors'
   end
 end
