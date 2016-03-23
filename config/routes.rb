@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   root to: "images#index"
 
   resources :profiles, only: [:show] do
-    resources :images, only: [:new, :create]
+    resources :images, shallow: true
   end
-
-  resources :images, only: [:show, :edit, :update, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
