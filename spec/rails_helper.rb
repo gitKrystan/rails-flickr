@@ -58,6 +58,8 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
 
+  config.include Paperclip::Shoulda::Matchers
+
   config.include Warden::Test::Helpers
   config.before :suite do
     Warden.test_mode!
