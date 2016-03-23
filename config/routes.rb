@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :images, only: [:new, :create]
   end
 
-  resources :images, only: [:show, :edit, :update]
+  resources :images, only: [:show, :edit, :update, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

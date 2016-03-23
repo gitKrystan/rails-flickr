@@ -1,7 +1,7 @@
 class ImagesController < CrudController
   before_action :set_profile, only: [:new, :create]
-  before_action :set_image, only: [:show, :edit, :update]
-  before_action :authenticate_image_owner, only: [:edit, :update]
+  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_image_owner, only: [:edit, :update, :destroy]
 
   def index
     @images = Image.all
@@ -34,6 +34,12 @@ class ImagesController < CrudController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @image.destroy
+    flash[:notice] = 'Deleted image.'
+    redirect_to root_path
   end
 
   private

@@ -16,7 +16,7 @@ describe 'edit an image' do
     expect(page).to have_content 'Updated Image Name'
   end
 
-  it 'does not allow another user to edit the image' do
+  it 'redirects another user who tries to edit the image' do
     login_as(create(:user))
     visit edit_image_path(@user_image)
     expect(page).to have_content('You are not authorized to edit this image.')
