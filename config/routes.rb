@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show] do
     resources :images, shallow: true do
       resources :images_favorites, as: 'favorites', only: [:edit, :new]
-      resources :comments, shallow: true
+      resources :comments, shallow: true, except: [:index]
     end
   end
 

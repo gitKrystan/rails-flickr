@@ -3,9 +3,6 @@ class CommentsController < CrudController
   before_action :set_image, only: [:new, :create]
   # before_action :authenticate_image_owner, only: [:edit, :update, :destroy]
   #
-  # def index
-  #   @comments = Comment.all
-  # end
   #
   # def show
   # end
