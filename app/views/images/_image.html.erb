@@ -1,5 +1,10 @@
 <div class="page-header">
   <h1><%= @image.name %></h1>
+  <% if is_favorited? %>
+    <%= link_to 'Un-favorite', edit_favorite_path(@image) %>
+  <%else%>
+    <%= link_to 'Favorite', new_image_favorite_path(@image) %>
+  <%end%>
   <% if user_is_image_owner? %>
   <%= link_to 'Edit', edit_image_path(@image), id: 'edit-image' %>
   <% end %>

@@ -1,11 +1,9 @@
 <% if @images %>
   <div class="row">
-    <div class="col-xs-6 col-md-3">
-      <% @images.each do |image| %>
-        <%= link_to image, class: 'thumbnail', id: "show-image-#{image.id}" do %>
-          <%= image_tag(image.file(:medium)) %>
-        <% end %>
-      <% end %>
-    </div>
+    <% @images.each do |image| %>
+      <div class="col-xs-6 col-md-3">
+        <%= render 'image_thumbnail', image: image %>
+      </div>
+    <% end %>
   </div>
 <% end %>

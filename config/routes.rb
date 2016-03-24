@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show] do
     resources :images, shallow: true do
+      resources :images_favorites, as: 'favorites', only: [:edit, :new]
       resources :comments, shallow: true
     end
   end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

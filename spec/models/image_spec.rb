@@ -7,4 +7,5 @@ RSpec.describe Image, type: :model do
   it { should validate_attachment_content_type(:file)
               .allowing('image/png', 'image/gif')
               .rejecting('text/plain', 'text/xml') }
+  it { should have_and_belong_to_many :favoritors }
 end

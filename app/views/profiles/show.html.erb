@@ -1,1 +1,27 @@
-<%= @profile.user.email %>
+<div class="page-header">
+  <h1><%= @profile.user.email %></h1>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <h2>My Images</h2>
+    <div class="row">
+      <% @images.each do |image| %>
+      <div class="col-xs-6">
+        <%= render 'images/image_thumbnail', image: image %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Favorites</h2>
+    <div class="row">
+      <% @favorites.each do |image| %>
+      <div class="col-xs-6">
+        <%= render 'images/image_thumbnail', image: image %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324174322) do
+ActiveRecord::Schema.define(version: 20160324215234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20160324174322) do
 
   add_index "images", ["profile_id"], name: "index_images_on_profile_id", using: :btree
 
+  create_table "images_profiles", force: :cascade do |t|
+    t.integer "image_id"
+    t.integer "profile_id"
+  end
+
+  add_index "images_profiles", ["image_id"], name: "index_images_profiles_on_image_id", using: :btree
+  add_index "images_profiles", ["profile_id"], name: "index_images_profiles_on_profile_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -69,4 +77,6 @@ ActiveRecord::Schema.define(version: 20160324174322) do
 
   add_foreign_key "comments", "profiles"
   add_foreign_key "images", "profiles"
+  add_foreign_key "images_profiles", "images"
+  add_foreign_key "images_profiles", "profiles"
 end
