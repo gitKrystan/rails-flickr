@@ -1,7 +1,5 @@
-<%= render 'image_show' %>
+<%= render @image %>
 <%= link_to 'Add a Comment', new_image_comment_path(@image) %>
 <div class="comment-area">
-  <% @comments.each do |comment| %>
-    <%= render 'comments/comment_show', comment: comment %>
-  <% end %>
+  <%= render @comments %>
 </div>

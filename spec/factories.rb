@@ -14,8 +14,19 @@ FactoryGirl.define do
     end
   end
 
+  factory :profile do
+    user
+  end
+
   factory :image do
     name 'Test Image'
+    profile
     file { fixture_file_upload( File.join(Rails.root, 'spec', 'fixtures', 'images', 'cat.jpg'), 'image/jpeg') }
+  end
+
+  factory :comment_on_image, class: Comment do
+    profile
+    image
+    content 'Test comment.'
   end
 end

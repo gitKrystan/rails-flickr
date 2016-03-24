@@ -1,6 +1,7 @@
 <%= render 'layouts/errors', object: @comment %>
 
 <%= form_for [@image, @comment] do |f| %>
+  <%= f.hidden_field :parent_id, value: @parent_id if @parent_id.present? %>
   <div class="form-group">
     <%= f.text_area :content, class: 'form-control', id: 'comment-content' %>
   </div>

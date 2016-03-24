@@ -1,0 +1,16 @@
+<blockquote>
+  <p>
+    <%= comment.content %>
+  </p>
+  <footer>
+    <%= comment.profile.user.email %>
+  </footer>
+  <p class="comment-options">
+    <%= link_to 'Reply', new_image_comment_path(@image, parent_id: comment) %>
+  </p>
+  <% if comment.has_children? %>
+    <% comment.children.each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  <% end %>
+</blockquote>

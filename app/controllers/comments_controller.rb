@@ -12,15 +12,23 @@ class CommentsController < CrudController
 
   def new
     @comment = Comment.new
+    @parent_id = params[:parent_id] if params[:parent_id]
   end
 
   # def edit
   # end
   #
   def create
-    profile = current_user.profile
-    @comment = profile.comments.new(comment_params)
-    @comment.commentable = @image
+    if params[:parent_id]
+      @parent_id = params[:parent_id]
+      parent = Comment.find(@parent_id)
+      @comment = parent.children.new(comment_params)
+    else
+      @comment = Comment.new(comment_params)
+    end
+    @comment.profile = current_user.profile
+    @comment.image = @image
+
     if @comment.save
       flash[:notice] = 'Your comment has been added!'
       redirect_to @image
@@ -47,7 +55,7 @@ class CommentsController < CrudController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :parent_id)
   end
 
   def set_image

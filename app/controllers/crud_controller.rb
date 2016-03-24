@@ -4,7 +4,10 @@ class CrudController < ApplicationController
   private
 
   def user_is_image_owner?
-    current_user == @image.profile.user
+    if user_signed_in?
+      return current_user == @image.profile.user
+    end
+    false
   end
   helper_method :user_is_image_owner?
 end

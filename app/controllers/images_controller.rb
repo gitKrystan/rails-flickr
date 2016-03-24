@@ -8,7 +8,7 @@ class ImagesController < CrudController
   end
 
   def show
-    @comments = @image.comments.order(created_at: :desc)
+    @comments = @image.comments.where(ancestry: nil).order(created_at: :desc)
   end
 
   def new
