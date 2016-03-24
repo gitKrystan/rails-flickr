@@ -8,6 +8,7 @@ class ImagesController < CrudController
   end
 
   def show
+    @comments = @image.comments.order(created_at: :desc)
   end
 
   def new
@@ -55,11 +56,6 @@ class ImagesController < CrudController
   def set_profile
     @profile = Profile.find(params[:profile_id])
   end
-
-  def user_is_image_owner?
-    current_user == @image.profile.user
-  end
-  helper_method :user_is_image_owner?
 
   def authenticate_image_owner
     unless user_is_image_owner?

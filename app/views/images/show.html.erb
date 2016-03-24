@@ -1,9 +1,7 @@
-<div class="page-header">
-  <h1><%= @image.name %></h1>
-  <% if user_is_image_owner? %>
-  <%= link_to 'Edit', edit_image_path(@image), id: 'edit-image' %>
+<%= render 'image_show' %>
+<%= link_to 'Add a Comment', new_image_comment_path(@image) %>
+<div class="comment-area">
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment_show', comment: comment %>
   <% end %>
-</div>
-<div class="image-area">
-  <%= image_tag(@image.file) %>
 </div>

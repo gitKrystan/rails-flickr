@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1><%= @image.name %></h1>
+  <% if user_is_image_owner? %>
+  <%= link_to 'Edit', edit_image_path(@image), id: 'edit-image' %>
+  <% end %>
+</div>
+<div class="image-area">
+  <%= image_tag(@image.file) %>
+</div>
+<hr>
