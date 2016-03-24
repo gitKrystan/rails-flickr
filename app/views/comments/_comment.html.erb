@@ -9,7 +9,7 @@
     <%= link_to 'Reply', new_image_comment_path(@image, parent_id: comment) %>
   </p>
   <% if comment.has_children? %>
-    <% comment.children.each do |comment| %>
+    <% comment.children.order(created_at: :desc).each do |comment| %>
       <%= render comment %>
     <% end %>
   <% end %>

@@ -22,10 +22,11 @@
 .comment-area {
   padding-top: 20px;
 
-  .comment-options {
-    font-size: 15px;
-    padding-left: 18px;
-  }
+}
+
+.comment-options {
+  font-size: 15px;
+  padding-left: 18px;
 }
 
 .image-area {
@@ -33,5 +34,17 @@
 
   img {
     max-width: 100%
+  }
+}
+
+@media (max-width: $screen-xs) {
+  blockquote blockquote blockquote blockquote {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  blockquote,
+  .comment-options {
+    font-size: 14px;
   }
 }
