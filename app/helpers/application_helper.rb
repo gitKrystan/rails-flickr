@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def is_favorited?
-    current_user.profile.favorites.include?( @image )
+  def is_favorited?(image = @image)
+    current_user.profile.favorites.include?( image )
   end
 end

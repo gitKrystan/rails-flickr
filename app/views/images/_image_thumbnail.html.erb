@@ -1,3 +1,8 @@
 <%= link_to image, class: 'thumbnail', id: "show-image-#{image.id}" do %>
   <%= image_tag(image.file(:medium)) %>
+  <% if is_favorited?(image) %>
+    <div class="thumbnail-icon">
+      *
+    </div>
+  <% end %>
 <% end %>

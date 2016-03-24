@@ -48,3 +48,16 @@
     font-size: 14px;
   }
 }
+
+.thumbnail-icon {
+   text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+  font-size: 5em;
+  position: absolute;
+  top: 0;
+  right: 30px;
+}
