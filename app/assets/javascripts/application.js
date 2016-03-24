@@ -18,35 +18,36 @@
 //= require_tree .
 //= require_tree ./../../../vendor/assets/javascripts
 
-$(function() {
-  console.log('doc ready')
-  $("#delete-image").on('click', function(e) {
-    console.log('clicked')
-    e.preventDefault();
-
-    var link = this;
-
-    swal({
-      title: 'Are you sure?',
-      text: 'You will not be able to recover this imaginary file!',
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#DD6B55',
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel plx!',
-      closeOnConfirm: false,
-      closeOnCancel: false
-    }, function(confirmed) {
-      if (confirmed) {
-        $.ajax({
-          url: $(link).attr("href"),
-          dataType: "JSON",
-          method: "DELETE"
-        });
-      } else {
-        console.log('nope');
-      }
-    });
-    return
-  });
-});
+// TODO: figure out how to make sweetalerts work!
+// $(function() {
+//   console.log('doc ready')
+//   $("#delete-image").on('click', function(e) {
+//     console.log('clicked')
+//     e.preventDefault();
+//
+//     var link = this;
+//
+//     swal({
+//       title: 'Are you sure?',
+//       text: 'You will not be able to recover this imaginary file!',
+//       type: 'warning',
+//       showCancelButton: true,
+//       confirmButtonColor: '#DD6B55',
+//       confirmButtonText: 'Yes, delete it!',
+//       cancelButtonText: 'No, cancel plx!',
+//       closeOnConfirm: false,
+//       closeOnCancel: false
+//     }, function(confirmed) {
+//       if (confirmed) {
+//         $.ajax({
+//           url: $(link).attr("href"),
+//           dataType: "JSON",
+//           method: "DELETE"
+//         });
+//       } else {
+//         console.log('nope');
+//       }
+//     });
+//     return
+//   });
+// });
